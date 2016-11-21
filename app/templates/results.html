@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr>
+      <td colspan="2"><b>Domain</b>: <em>{{ domain }}</em> <span class="label label-success">{{ ", ".join(ips) }}</td>
+    </tr>
+  </thead>
+  <tbody>
+    {% if results %}
+      {% for r in results %}
+        <tr>
+          <td width="1%" nowrap="nowrap">{{ r.split(" ")[0] }}</td>
+          <td>{{ r.split(" ")[1] }}</td>
+        </tr>
+      {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+{% include "form.html" %}
+{% endblock %}
